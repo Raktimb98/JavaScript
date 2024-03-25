@@ -1,12 +1,12 @@
-// console.log("hi");
-// let a = 20;
-// let b = " hi";
-// console.log(a + b);
-// {
-//   const a = 50;
-//   console.log(a); //this will show the value of const a which is 50
-// }
-// console.log(typeof b);
+/*console.log("hi");
+let ac = 20;
+let bc = " hi";
+console.log(ac + bc);
+{
+  const a = 50;
+  console.log(a); //this will show the value of const a which is 50
+}
+console.log(typeof bc);
 const c ={
   name: 'John',
   age: 30,
@@ -16,3 +16,41 @@ console.log (c);
 c ['friend'] = "Jane";
 delete c['age'];
 console.log(c) ;
+const Dictionary ={
+  appreciate:'Respect',
+  love :'Love',
+  peace :'Peace',
+  coward:'fear',
+  beaut̥iful:'pretty'
+}
+console.log("🚀 ~ Dictionary.beaut̥iful:", Dictionary.beaut̥iful)
+console.log(Dictionary['appreciate']);
+operators in js
+let a = 5;
+let b = 5;
+console.log("addition", a + b);
+console.log("subtraction", a - b);
+console.log("multiplication", a * b);
+console.log("division", a / b);
+console.log("modulus", a % b);
+console.log("increment", ++a);
+console.log("decrement", --a);
+console.log("idk", a++);
+console.log("idk too", a--); */
+// let a = prompt( "Enter your age" );
+// a = number.parseInt(a);
+// if (a>18){
+//   alert("You can apply for  voting");
+// }
+// else if(a<18 && a>9){
+// alert( "Your are not eligible to vote");
+// }
+// else {
+//   alert ("You are not old enough to vote")
+// }
+// TODO do some tests
+/*
+ *i'm checking the extentions...
+*/
+//TODO: fix this code
+//FIXME: fix this code
