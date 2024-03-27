@@ -37,17 +37,18 @@ console.log("increment", ++a);
 console.log("decrement", --a);
 console.log("idk", a++);
 console.log("idk too", a--); */
-// let a = prompt( "Enter your age" );
-// a = number.parseInt(a);
-// if (a>18){
-//   alert("You can apply for  voting");
-// }
-// else if(a<18 && a>9){
-// alert( "Your are not eligible to vote");
-// }
-// else {
-//   alert ("You are not old enough to vote")
-// }
+const prompt = require('prompt-sync')();
+let a = prompt( "Enter your age:" );
+a = Number.parseInt(a);
+if (a>17){
+  console.log("You can apply for  voting");
+}
+else if(a<17 && a>9){
+console.log( "Your are not eligible to vote");
+}
+else {
+  console.log ("You are not old enough to vote");
+}
 // TODO do some tests
 /*
  *i'm checking the extentions...
