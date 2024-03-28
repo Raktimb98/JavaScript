@@ -52,7 +52,7 @@ else {
 console.log("you are a", a<10 ? 'child': a>12 && a<20 ? 'teenager': a>21?  'adult':'senior');
 // TODO do some tests
 /*
- *i'm checking the extentions...
+ *i'm checking the extensions...
 */
 //TODO: fix this code
 //FIXME: fix this code
