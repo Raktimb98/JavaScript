@@ -56,3 +56,25 @@ console.log("you are a", a<10 ? 'child': a>12 && a<20 ? 'teenager': a>21?  'adul
 */
 //TODO: fix this code
 //FIXME: fix this code
+switch (new Date().getDay()) {
+  case 0:
+    day = "Sunday";
+    break;
+  case 1:
+    day = "Monday";
+    break;
+  case 2:
+     day = "Tuesday";
+    break;
+  case 3:
+    day = "Wednesday";
+    break;
+  case 4:
+    day = "Thursday";
+    break;
+  case 5:
+    day = "Friday";
+    break;
+  case 6:
+    day = "Saturday";
+}
