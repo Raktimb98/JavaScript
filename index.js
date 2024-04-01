@@ -78,3 +78,6 @@
 //   case 6:
 //     day = "Saturday";
 // }
+const prompt = require('prompt-sync')();
+let a = prompt( "Enter your age:" );
+console.log("You are a", a<11? "child":a>11 ||a< 21? "teenager" : "adult");
