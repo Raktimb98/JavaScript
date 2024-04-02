@@ -78,6 +78,43 @@
 //   case 6:
 //     day = "Saturday";
 // }
-const prompt = require('prompt-sync')();
-let a = prompt( "Enter your age:" );
-console.log("You are a", a<11? "child":a>11 ||a< 21? "teenager" : "adult");
+// const prompt = require('prompt-sync')();
+// let a = prompt( "Enter your age:" );
+// console.log("You are a", a<11? "child":a>11 ||a< 21? "teenager" : "adult");
+// const prompt = require('prompt-sync')();
+// let age =prompt("What is your age: ");
+
+// switch (age){
+//     case '1':
+//         console.log("your age is 15");
+//         break;
+//     case '2':
+//         console.log("Your age is 17");
+//         break;
+//     case '3':
+//         console.log("Your age is 25");
+//         break;
+//     default:
+//         console.log("Invalid input")
+// }
+// let a = 6
+// if (a % 2 ==0 || a%3==0) {
+//     console.log("Number is Divisible by 2 or 3")
+// }
+// else{
+//     console.log("Number is !Divisible by 2 and 3")
+// }
+// const prompt = require('prompt-sync')();
+// let num = prompt("Enter your age:")
+// console.log("you can",num>17? "drive":"not drive");
+// for (let i =0;i<=50;i++){
+//     console.log(i);
+// }
+const prompt = require("prompt-sync");
+let sum = 0;
+let n = prompt("Enter a number you want to sum:");
+n = Number.parseInt(n);
+for (let i = 0; i <= n; i++) {
+  sum += i + 1;
+}
+console.log("Sum of first " + n + " natural numbers is " + sum);
