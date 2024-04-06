@@ -110,11 +110,11 @@
 // for (let i =0;i<=50;i++){
 //     console.log(i);
 // }
-const prompt = require("prompt-sync");
-let sum = 0;
-let n = prompt("Enter a number you want to sum:");
-n = Number.parseInt(n);
-for (let i = 1; i <= n; i++) {
-  sum += i;
-}
-console.log("Sum of first " + n + " natural numbers is " + sum);
+// const prompt = require("prompt-sync");
+// let sum = 0;
+// let n = prompt("Enter a number you want to sum:");
+// n = Number.parseInt(n);
+// for (let i = 1; i <= n; i++) {
+//   sum += i;
+// }
+// console.log("Sum of first " + n + " natural numbers is " + sum);
