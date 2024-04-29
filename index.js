@@ -110,7 +110,7 @@
 // for (let i =0;i<=50;i++){
 //     console.log(i);
 // }
-// const prompt = require("prompt-sync");
+// const prompt = require("prompt-sync")();
 // let sum = 0;
 // let n = prompt("Enter a number you want to sum:");
 // n = Number.parseInt(n);
@@ -118,3 +118,20 @@
 //   sum += i;
 // }
 // console.log("Sum of first " + n + " natural numbers is " + sum);
+// let students = {
+//   Raktim: 45,
+//   Sonam: 89,
+//   Tsering: 76,
+// };
+// for (let a in students) {
+//     console.log(students[a]);
+//}
+//While loop
+const prompt = require("prompt-sync")();
+let n = prompt("Enter the number:");
+n = Number.parseInt(n);
+let i = 0;
+while (i < n) {
+  console.log(i);
+  i++;
+}
