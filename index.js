@@ -138,11 +138,33 @@
 // console.log("hello");
 
 // Do While loop
-const prompt = require("prompt-sync")();
-let n = prompt("Enter the number:");
-n = Number.parseInt(n);
-let i = 0;
-do{
-    console.log(i);
-    i++;
-}while(i<n);
+// const prompt = require("prompt-sync")();
+// let n = prompt("Enter the number:");
+// n = Number.parseInt(n);
+// let i = 0;
+// do{
+//     console.log(i);
+//     i++;
+// }while(i<n);
+
+// Functions
+// function sayHello(){
+//     console.log("Hello");
+// }
+// sayHello();
+
+//String
+let name = "FrostFern"
+console.log(name.length);
+console.log(name.toUpperCase());
+console.log(name.toLowerCase());
+console.log(name[0]);
+//Template Literals
+let boy1 = "John";
+let boy2 = "Doe";
+let friend = `boy1 is a friend of boy2`;
+let sentence = `${boy1} is a friend of ${boy2}`;
+console.log(sentence);
+//Escape sequence characters
+let fruit = 'Bana\'na';
+console.log(fruit);
