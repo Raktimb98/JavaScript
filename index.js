@@ -154,17 +154,34 @@
 // sayHello();
 
 //String
-let name = "FrostFern"
+// let name = "FrostFern"
+// console.log(name.length);
+// console.log(name.toUpperCase());
+// console.log(name.toLowerCase());
+// console.log(name[0]);
+//Template Literals
+// let boy1 = "John";
+// let boy2 = "Doe";
+// let friend = `boy1 is a friend of boy2`;
+// let sentence = `${boy1} is a friend of ${boy2}`;
+// console.log(sentence);
+//Escape sequence characters
+// let fruit = 'Bana\'na';
+// console.log(fruit);
+
+// String Methods
+let name = "FrostFern";
 console.log(name.length);
 console.log(name.toUpperCase());
 console.log(name.toLowerCase());
 console.log(name[0]);
-//Template Literals
-let boy1 = "John";
-let boy2 = "Doe";
-let friend = `boy1 is a friend of boy2`;
-let sentence = `${boy1} is a friend of ${boy2}`;
-console.log(sentence);
-//Escape sequence characters
-let fruit = 'Bana\'na';
-console.log(fruit);
+console.log(name.indexOf('F'));
+console.log(name.lastIndexOf('F'));
+console.log(name.charAt(0));
+console.log(name.endsWith('n'));
+console.log(name.includes('F'));
+console.log(name.substring(0,5));
+console.log(name.slice(0,5));
+console.log(name.split(''));
+console.log(name.replace('Frost','Fern'));
+console.log(name.trim());
