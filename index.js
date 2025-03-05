@@ -170,18 +170,23 @@
 // console.log(fruit);
 
 // String Methods
-let name = "FrostFern";
-console.log(name.length);
-console.log(name.toUpperCase());
-console.log(name.toLowerCase());
-console.log(name[0]);
-console.log(name.indexOf('F'));
-console.log(name.lastIndexOf('F'));
-console.log(name.charAt(0));
-console.log(name.endsWith('n'));
-console.log(name.includes('F'));
-console.log(name.substring(0,5));
-console.log(name.slice(0,5));
-console.log(name.split(''));
-console.log(name.replace('Frost','Fern'));
-console.log(name.trim());
+// let name = "FrostFern";
+// console.log(name.length);
+// console.log(name.toUpperCase());
+// console.log(name.toLowerCase());
+// console.log(name[0]);
+// console.log(name.indexOf('F'));
+// console.log(name.lastIndexOf('F'));
+// console.log(name.charAt(0));
+// console.log(name.endsWith('n'));
+// console.log(name.includes('F'));
+// console.log(name.substring(0,5));
+// console.log(name.slice(0,5));
+// console.log(name.split(''));
+// console.log(name.replace('Frost','Fern'));
+// console.log(name.trim());
+
+//Arrays
+let fruits = ['Apple','Banana','Mango','Orange'];
+console.log(fruits);
+console.log(fruits[3]);
