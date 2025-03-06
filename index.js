@@ -187,6 +187,44 @@
 // console.log(name.trim());
 
 //Arrays
-let fruits = ['Apple','Banana','Mango','Orange'];
-console.log(fruits);
-console.log(fruits[3]);
+// let fruits = ['Apple','Banana','Mango','Orange'];
+// console.log(fruits);
+// console.log(fruits[3]);
+
+//Arrays Methods
+let numbers = [1,2,3,4,5,6,7,8,9,10];
+
+console.log("Type conversion:")
+let result = numbers.toString();
+console.log(result);
+console.log(typeof result);
+
+console.log('\n');
+
+console.log("Join method:")
+let result1 = numbers.join('-');
+console.log(result1);
+
+console.log('\n');
+
+console.log("Pop method:")
+let result2 = numbers.pop();
+console.log(numbers);
+
+console.log('\n');
+
+console.log("Push method:")
+let result3 = numbers.push(11);
+console.log(numbers);
+
+console.log('\n');
+
+console.log("Shift method:")
+let result4 = numbers.shift();
+console.log(numbers);
+
+console.log('\n');
+
+console.log("Unshift method:")
+let result5 = numbers.unshift(85);
+console.log(numbers);
