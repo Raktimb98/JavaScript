@@ -230,25 +230,53 @@
 // console.log(numbers);
 
 //Some more methods of arrays
-let numbers = [1,2,3,4,5,6,7,8,9,10];
-console.log(numbers);
+// let numbers = [1,2,3,4,5,6,7,8,9,10];
+// console.log(numbers);
 
-console.log("Reverse method:");
-console.log(numbers.reverse());
+// console.log("Reverse method:");
+// console.log(numbers.reverse());
 
-console.log('\n');
+// console.log('\n');
 
-console.log("Concat method:");
-let numbers2 = [11,12,13,14,15];
-console.log(numbers.concat(numbers2));
+// console.log("Concat method:");
+// let numbers2 = [11,12,13,14,15];
+// console.log(numbers.concat(numbers2));
 
-console.log('\n');
+// console.log('\n');
 
-console.log("Slice method:");
-console.log(numbers.slice(2,5));
+// console.log("Slice method:");
+// console.log(numbers.slice(2,5));
 
-console.log('\n');
+// console.log('\n');
 
-console.log("Delete method:");
-delete numbers[2];
-console.log(numbers);
+// console.log("Delete method:");
+// delete numbers[2];
+// console.log(numbers);
+
+// Using loops in arrays
+// let numbers = [1,2,3,4,5,6,7,8,9,10];
+
+// for (let i = 0; i<numbers.length; i++){
+//     console.log(numbers[i]);
+// }
+
+//ForeEach loop
+// numbers.forEach((elements)=> {
+//     console.log(elements * elements);
+// })
+
+//Array.form
+// let numbers2 = Array.from('hello');
+// console.log(numbers2);
+
+//Array.of
+// num = [1,2,3,4,5,6,7,8,9,10];
+// for (let i of num ){
+//     console.log(i);
+// }
+
+//Array.in
+Number = [1,2,3,4,5,6,7,8,9,10];
+for (let i in Number){
+    console.log(i);
+}
