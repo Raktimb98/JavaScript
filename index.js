@@ -276,7 +276,28 @@
 // }
 
 //Array.in
-Number = [1,2,3,4,5,6,7,8,9,10];
-for (let i in Number){
-    console.log(i);
-}
+// Number = [1,2,3,4,5,6,7,8,9,10];
+// for (let i in Number){
+//     console.log(i);
+// }
+
+//Map , Filter and Reduce
+let numbers = [45,54,546,5,1,35]
+//Array Map Method
+// let a = numbers.map((value,index)=>{
+//     console.log(value,index);
+//     return value + 1;
+// })
+// console.log(a);
+
+//Array Filter Method
+// let filterNumbers = numbers.filter((value)=>{
+//     return value < 10;
+// })
+// console.log(filterNumbers);
+
+//Array Reduce Method
+let reduceNumbers = numbers.reduce((acc,curr)=>{
+    return acc + curr;
+})
+console.log(reduceNumbers);
