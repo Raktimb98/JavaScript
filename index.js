@@ -1,30 +1,3 @@
-// /*console.log("hi");
-// let ac = 20;
-// let bc = " hi";
-// console.log(ac + bc);
-// {
-//   const a = 50;
-//   console.log(a); //this will show the value of const a which is 50
-// }
-// console.log(typeof bc);
-// const c ={
-//   name: 'John',
-//   age: 30,
-//   city: 'New York'
-// };
-// console.log (c);
-// c ['friend'] = "Jane";
-// delete c['age'];
-// console.log(c) ;
-// const Dictionary ={
-//   appreciate:'Respect',
-//   love :'Love',
-//   peace :'Peace',
-//   coward:'fear',
-//   beaut̥iful:'pretty'
-// }
-// console.log("🚀 ~ Dictionary.beaut̥iful:", Dictionary.beaut̥iful)
-// console.log(Dictionary['appreciate']);
 // operators in js
 // let a = 5;
 // let b = 5;
