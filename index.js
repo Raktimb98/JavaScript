@@ -270,7 +270,14 @@ let numbers = [45,54,546,5,1,35]
 // console.log(filterNumbers);
 
 //Array Reduce Method
-let reduceNumbers = numbers.reduce((acc,curr)=>{
-    return acc + curr;
-})
-console.log(reduceNumbers);
+// let reduceNumbers = numbers.reduce((acc,curr)=>{
+//     return acc + curr;
+// })
+// console.log(reduceNumbers);
+
+//Console Methods
+console.log("Hello");
+console.error("This is an error");
+console.warn("This is a warning");
+console.table({a:1,b:2});
+console.time('Time taken');
