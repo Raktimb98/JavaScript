@@ -276,8 +276,20 @@ let numbers = [45,54,546,5,1,35]
 // console.log(reduceNumbers);
 
 //Console Methods
-console.log("Hello");
-console.error("This is an error");
-console.warn("This is a warning");
-console.table({a:1,b:2});
-console.time('Time taken');
+// console.log("Hello");
+// console.error("This is an error");
+// console.warn("This is a warning");
+// console.table({a:1,b:2});
+// console.time('Time taken');
+
+// Alert,Prompt and Confirm
+alert("Hello World");
+let a = prompt("Enter your name:","asdf");
+let write = confirm("Are you sure you want to Write this?");
+if (write){
+    document.write("Hello " + a);
+}
+else{
+    document.write("You cancelled the write operation");
+}
+// document.write(a);
