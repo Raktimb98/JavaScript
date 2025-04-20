@@ -283,13 +283,33 @@ let numbers = [45,54,546,5,1,35]
 // console.time('Time taken');
 
 // Alert,Prompt and Confirm
-alert("Hello World");
-let a = prompt("Enter your name:","asdf");
-let write = confirm("Are you sure you want to Write this?");
-if (write){
-    document.write("Hello " + a);
-}
-else{
-    document.write("You cancelled the write operation");
-}
+// alert("Hello World");
+// let a = prompt("Enter your name:","asdf");
+// let write = confirm("Are you sure you want to Write this?");
+// if (write){
+//     document.write("Hello " + a);
+// }
+// else{
+//     document.write("You cancelled the write operation");
+// }
 // document.write(a);
+
+// BOM & DOM
+console.log(window);
+window.alert("Hello World");
+document.body.style.backgroundColor = "black";
+document.body.style.color = "white";
+// Example of BOM (Browser Object Model)
+console.log("Browser Width: " + window.innerWidth);
+console.log("Browser Height: " + window.innerHeight);
+console.log("Current URL: " + window.location.href);
+window.alert("This is an example of BOM!");
+
+// Example of DOM (Document Object Model)
+const heading = document.createElement("h1");
+heading.textContent = "Welcome to BOM and DOM Example!";
+document.body.appendChild(heading);
+
+const paragraph = document.createElement("p");
+paragraph.textContent = "This paragraph is dynamically added using DOM.";
+document.body.appendChild(paragraph);
