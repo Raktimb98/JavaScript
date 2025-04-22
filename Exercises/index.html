@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snake Water Gun</title>
+    <script src="exerciseNo2.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 24px;
+            white-space: pre-wrap; /* Preserve formatting */
+        }
+        #score {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+        .button-snake {
+            background-color: lightgreen;
+        }
+        .button-water {
+            background-color: lightblue;
+        }
+        .button-gun {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <h1>Play Snake Water Gun!</h1>
+    <button class="button-snake" onclick="playRound('snake')">Snake</button>
+    <button class="button-water" onclick="playRound('water')">Water</button>
+    <button class="button-gun" onclick="playRound('gun')">Gun</button>
+
+    <div id="result"></div>
+    <div id="score"></div>
+
+    <script src="./exerciseNo2.js"></script>
+</body>
+</html>
