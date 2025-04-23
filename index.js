@@ -1,4 +1,4 @@
-// operators in js
+//* operators in js
 // let a = 5;
 // let b = 5;
 // console.log("addition", a + b);
@@ -99,7 +99,7 @@
 // for (let a in students) {
 //     console.log(students[a]);
 //}
-//While loop
+//* While loop
 // const prompt = require("prompt-sync")();
 // let n = prompt("Enter the number:");
 // n = Number.parseInt(n);
@@ -110,7 +110,7 @@
 // }
 // console.log("hello");
 
-// Do While loop
+//* Do While loop
 // const prompt = require("prompt-sync")();
 // let n = prompt("Enter the number:");
 // n = Number.parseInt(n);
@@ -120,29 +120,29 @@
 //     i++;
 // }while(i<n);
 
-// Functions
+//* Functions
 // function sayHello(){
 //     console.log("Hello");
 // }
 // sayHello();
 
-//String
+//* String
 // let name = "FrostFern"
 // console.log(name.length);
 // console.log(name.toUpperCase());
 // console.log(name.toLowerCase());
 // console.log(name[0]);
-//Template Literals
+//* Template Literals
 // let boy1 = "John";
 // let boy2 = "Doe";
 // let friend = `boy1 is a friend of boy2`;
 // let sentence = `${boy1} is a friend of ${boy2}`;
 // console.log(sentence);
-//Escape sequence characters
+//* Escape sequence characters
 // let fruit = 'Bana\'na';
 // console.log(fruit);
 
-// String Methods
+//* String Methods
 // let name = "FrostFern";
 // console.log(name.length);
 // console.log(name.toUpperCase());
@@ -159,12 +159,12 @@
 // console.log(name.replace('Frost','Fern'));
 // console.log(name.trim());
 
-//Arrays
+//* Arrays
 // let fruits = ['Apple','Banana','Mango','Orange'];
 // console.log(fruits);
 // console.log(fruits[3]);
 
-//Arrays Methods
+//* Arrays Methods
 // let numbers = [1,2,3,4,5,6,7,8,9,10];
 
 // console.log("Type conversion:")
@@ -202,7 +202,7 @@
 // let result5 = numbers.unshift(85);
 // console.log(numbers);
 
-//Some more methods of arrays
+//* Some more methods of arrays
 // let numbers = [1,2,3,4,5,6,7,8,9,10];
 // console.log(numbers);
 
@@ -226,63 +226,63 @@
 // delete numbers[2];
 // console.log(numbers);
 
-// Using loops in arrays
+//* Using loops in arrays
 // let numbers = [1,2,3,4,5,6,7,8,9,10];
 
 // for (let i = 0; i<numbers.length; i++){
 //     console.log(numbers[i]);
 // }
 
-//ForeEach loop
+//* ForeEach loop
 // numbers.forEach((elements)=> {
 //     console.log(elements * elements);
 // })
 
-//Array.form
+//* Array.form
 // let numbers2 = Array.from('hello');
 // console.log(numbers2);
 
-//Array.of
+//* Array.of
 // num = [1,2,3,4,5,6,7,8,9,10];
 // for (let i of num ){
 //     console.log(i);
 // }
 
-//Array.in
+//* Array.in
 // Number = [1,2,3,4,5,6,7,8,9,10];
 // for (let i in Number){
 //     console.log(i);
 // }
 
-//Map , Filter and Reduce
-let numbers = [45,54,546,5,1,35]
-//Array Map Method
+//* Map , Filter and Reduce
+// let numbers = [45,54,546,5,1,35]
+//* Array Map Method
 // let a = numbers.map((value,index)=>{
 //     console.log(value,index);
 //     return value + 1;
 // })
 // console.log(a);
 
-//Array Filter Method
+//* Array Filter Method
 // let filterNumbers = numbers.filter((value)=>{
 //     return value < 10;
 // })
 // console.log(filterNumbers);
 
-//Array Reduce Method
+//* Array Reduce Method
 // let reduceNumbers = numbers.reduce((acc,curr)=>{
 //     return acc + curr;
 // })
 // console.log(reduceNumbers);
 
-//Console Methods
+//* Console Methods
 // console.log("Hello");
 // console.error("This is an error");
 // console.warn("This is a warning");
 // console.table({a:1,b:2});
 // console.time('Time taken');
 
-// Alert,Prompt and Confirm
+//* Alert,Prompt and Confirm
 // alert("Hello World");
 // let a = prompt("Enter your name:","asdf");
 // let write = confirm("Are you sure you want to Write this?");
@@ -294,22 +294,24 @@ let numbers = [45,54,546,5,1,35]
 // }
 // document.write(a);
 
-// BOM & DOM
-console.log(window);
-window.alert("Hello World");
-document.body.style.backgroundColor = "black";
-document.body.style.color = "white";
-// Example of BOM (Browser Object Model)
-console.log("Browser Width: " + window.innerWidth);
-console.log("Browser Height: " + window.innerHeight);
-console.log("Current URL: " + window.location.href);
-window.alert("This is an example of BOM!");
+//* BOM & DOM
+// console.log(window);
+// window.alert("Hello World");
+// document.body.style.backgroundColor = "black";
+// document.body.style.color = "white";
+//* Example of BOM (Browser Object Model)
+// console.log("Browser Width: " + window.innerWidth);
+// console.log("Browser Height: " + window.innerHeight);
+// console.log("Current URL: " + window.location.href);
+// window.alert("This is an example of BOM!");
 
-// Example of DOM (Document Object Model)
-const heading = document.createElement("h1");
-heading.textContent = "Welcome to BOM and DOM Example!";
-document.body.appendChild(heading);
+//* Example of DOM (Document Object Model)
+// const heading = document.createElement("h1");
+// heading.textContent = "Welcome to BOM and DOM Example!";
+// document.body.appendChild(heading);
 
-const paragraph = document.createElement("p");
-paragraph.textContent = "This paragraph is dynamically added using DOM.";
-document.body.appendChild(paragraph);
+// const paragraph = document.createElement("p");
+// paragraph.textContent = "This paragraph is dynamically added using DOM.";
+// document.body.appendChild(paragraph);
+
+//* Walking the DOM
