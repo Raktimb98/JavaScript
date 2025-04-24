@@ -315,3 +315,6 @@
 // document.body.appendChild(paragraph);
 
 //* Walking the DOM
+
+// example (document.title = "Hello World");
+// example (document.body.style.backgroundColor = "lightblue");
