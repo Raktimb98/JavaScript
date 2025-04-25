@@ -318,3 +318,9 @@
 
 // example (document.title = "Hello World");
 // example (document.body.style.backgroundColor = "lightblue");
+
+//* Accessing children of an element
+
+console.log(document.body.firstChild);
+console.log(document.body.lastChild);
+console.log(document.body.childNodes);
