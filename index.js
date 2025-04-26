@@ -324,3 +324,9 @@
 console.log(document.body.firstChild);
 console.log(document.body.lastChild);
 console.log(document.body.childNodes);
+
+//* Accessing parent of an element
+console.log(document.body.firstChild);
+console.log(document.body.lastChild);
+console.log(document.body.parentNode);
+console.log(document.body.parentElement);
