@@ -321,12 +321,22 @@
 
 //* Accessing children of an element
 
-console.log(document.body.firstChild);
-console.log(document.body.lastChild);
-console.log(document.body.childNodes);
+// console.log(document.body.firstChild);
+// console.log(document.body.lastChild);
+// console.log(document.body.childNodes);
 
 //* Accessing parent of an element
-console.log(document.body.firstChild);
-console.log(document.body.lastChild);
-console.log(document.body.parentNode);
-console.log(document.body.parentElement);
+// console.log(document.body.firstChild);
+// console.log(document.body.lastChild);
+// console.log(document.body.parentNode);
+// console.log(document.body.parentElement);
+
+//* Element only navigation
+const changeBodyRed = () => { 
+    document.body.firstElementChild.style.background = "red"; 
+}
+
+
+let b = document.body;
+console.log("First child of b is: ", b.firstChild);
+console.log("First Element child of b is: ", b.firstElementChild);
