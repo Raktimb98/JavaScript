@@ -332,11 +332,16 @@
 // console.log(document.body.parentElement);
 
 //* Element only navigation
-const changeBodyRed = () => { 
-    document.body.firstElementChild.style.background = "red"; 
-}
+// const changeBodyRed = () => { 
+//     document.body.firstElementChild.style.background = "red"; 
+// }
 
 
-let b = document.body;
-console.log("First child of b is: ", b.firstChild);
-console.log("First Element child of b is: ", b.firstElementChild);
+// let b = document.body;
+// console.log("First child of b is: ", b.firstChild);
+// console.log("First Element child of b is: ", b.firstElementChild);
+
+//* Table navigation
+let t = document.body.firstElementChild.firstElementChild;
+console.log(t)
+console.log(t.rows)
