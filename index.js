@@ -342,6 +342,19 @@
 // console.log("First Element child of b is: ", b.firstElementChild);
 
 //* Table navigation
-let t = document.body.firstElementChild.firstElementChild;
-console.log(t)
-console.log(t.rows)
+// let t = document.body.firstElementChild.firstElementChild;
+// console.log(t)
+// console.log(t.rows)
+
+//* DOM Search 
+// let cTitle = document.getElementsByClassName("card-title")[0];
+// cTitle.style.color = "red";
+
+// let cTitle = document.getElementById("FirstCardTitle");
+// cTitle.style.color = "red";
+
+let cTitles = document.querySelectorAll(".card-title");
+cTitles[0].style.color = "red";
+cTitles[1].style.color = "green";
+cTitles[2].style.color = "blue";
+console.log(cTitles);
