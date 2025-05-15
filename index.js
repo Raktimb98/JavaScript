@@ -353,8 +353,16 @@
 // let cTitle = document.getElementById("FirstCardTitle");
 // cTitle.style.color = "red";
 
-let cTitles = document.querySelectorAll(".card-title");
-cTitles[0].style.color = "red";
-cTitles[1].style.color = "green";
-cTitles[2].style.color = "blue";
-console.log(cTitles);
+// let cTitles = document.querySelectorAll(".card-title");
+// cTitles[0].style.color = "red";
+// cTitles[1].style.color = "green";
+// cTitles[2].style.color = "blue";
+// console.log(cTitles);
+
+//* Matches , closest and contains
+let id1 = document.getElementById("id1")
+console.log(id1)
+console.log(id1.matches(".class"))
+console.log(id2.matches(".box"))
+console.log(id2.closest(".box"))
+console.log(id2.contains(sp1))
