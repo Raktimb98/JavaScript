@@ -1,5 +1,5 @@
 const prompt = require('prompt-sync')();
-//* Problem No 1
+//? Problem No 1
 /*
 let age = prompt("Enter your age: ");
 age = parseInt(age);
@@ -10,7 +10,7 @@ else{
     console.log("Your age is not between 10 and 20");
 }
 */
-//* Problem No 2
+//? Problem No 2
 /*
 let age = prompt("Enter your age: ");
 switch (age) {
@@ -27,7 +27,7 @@ switch (age) {
         console.log("Your age is not 10, 20 or 30");
 }
 */
-//* Problem No 3
+//? Problem No 3
 /*
 let number = prompt("Enter a number: ");
 number = parseInt(number);
@@ -44,7 +44,7 @@ else{
     console.log("The number is not divisible by 2 or 3");
 }
 */
-//* Problem No 4
+//? Problem No 4
 let age = prompt("Enter your age: ");
 age = parseInt(age);
 if (age => 18){
