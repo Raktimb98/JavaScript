@@ -360,9 +360,24 @@
 // console.log(cTitles);
 
 //* Matches , closest and contains
-let id1 = document.getElementById("id1")
-console.log(id1)
-console.log(id1.matches(".class"))
-console.log(id2.matches(".box"))
-console.log(id2.closest(".box"))
-console.log(id2.contains(sp1))
+// let id1 = document.getElementById("id1")
+// console.log(id1)
+// console.log(id1.matches(".class"))
+// console.log(id2.matches(".box"))
+// console.log(id2.closest(".box"))
+// console.log(id2.contains(sp1))
+
+//* InnerHTML and OuterHTML
+// let x = document.getElementsByTagName('span')[0];
+// console.log(x);
+// let y = document.getElementsByTagName('span')[0];
+// console.dir(y);
+// console.log(document.body.firstChild.nodeName);
+// console.log(document.body.firstElementChild.nodeName);
+
+// console.log(first.innerHTML)
+// first.innerHTML = "<h1>hello</h1>"
+// console.log(first.outerHTML)
+// first.outerHTML = "<h1>adsf</h1>"
+
+console.log(document.body.textContent);
