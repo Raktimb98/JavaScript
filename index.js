@@ -383,14 +383,22 @@
 // console.log(document.body.textContent);
 
 //*HTML Attributes and their methods
-let first = document.getElementById("first");
-let a =first.getAttribute("class");
+// let first = document.getElementById("first");
+// let a =first.getAttribute("class");
 // console.log(a);
 // console.log(first.hasAttribute("class"));
 // console.log(first.hasAttributes("style"));
 // first.setAttribute("hidden","true");
 // first.removeAttribute("class");
 // console.log(first.attributes);
-console.log(first.dataset);
-console.log(first.dataset.game);
-console.log(first.dataset.player);
+// console.log(first.dataset);
+// console.log(first.dataset.game);
+// console.log(first.dataset.player);
+
+//* HTML Insertion Methods
+let a =document.getElementsByTagName('div')[0];
+a.innerHTML = a.innerHTML + "<h1>hello</h1>";
+
+let div = document.createElement('div');
+div.innerHTML = "<h1>hello</h1>";
+a.appendChild(div);
