@@ -396,9 +396,16 @@
 // console.log(first.dataset.player);
 
 //* HTML Insertion Methods
-let a =document.getElementsByTagName('div')[0];
-a.innerHTML = a.innerHTML + "<h1>hello</h1>";
+// let a =document.getElementsByTagName('div')[0];
+// a.innerHTML = a.innerHTML + "<h1>hello</h1>";
 
-let div = document.createElement('div');
-div.innerHTML = "<h1>hello</h1>";
-a.appendChild(div);
+// let div = document.createElement('div');
+// div.innerHTML = "<h1>hello</h1>";
+// a.appendChild(div);
+
+//* insertAdjacentHTML, insertAdjacentElement and insertAdjacentText
+// first.insertAdjacentHTML('beforebegin','<div class= "test">beforebegin</div>');
+// first.insertAdjacentHTML('beforeend','<div class= "test">beforeend</div>');
+// first.insertAdjacentHTML('afterbegin','<div class= "test">afterbegin</div>');
+// first.insertAdjacentHTML('afterend','<div class= "test">afterend</div>');
+first.remove();
