@@ -332,10 +332,9 @@
 // console.log(document.body.parentElement);
 
 //* Element only navigation
-// const changeBodyRed = () => { 
-//     document.body.firstElementChild.style.background = "red"; 
+// const changeBodyRed = () => {
+//     document.body.firstElementChild.style.background = "red";
 // }
-
 
 // let b = document.body;
 // console.log("First child of b is: ", b.firstChild);
@@ -346,7 +345,7 @@
 // console.log(t)
 // console.log(t.rows)
 
-//* DOM Search 
+//* DOM Search
 // let cTitle = document.getElementsByClassName("card-title")[0];
 // cTitle.style.color = "red";
 
@@ -411,4 +410,18 @@
 // first.remove();
 
 //* Class changing using javascript
-first.className = "cyan";
+// first.className = "cyan";
+
+//* SetInterval and SetTimeout
+document.writeln("Hello World");
+// setTimeout(() => {
+//   alert("This is a delayed alert!");
+// }, 2000);
+const sum = (a, b) => {
+    console.log("Sum of " + a + " and " + b + " is: " + (a + b));
+    document.writeln("Sum of " + a + " and " + b + " is: " + (a + b));
+}
+setTimeout(sum, 2000, 5, 10);
+setInterval(function(){
+    alert("This is a repeated alert every 3 seconds!");
+},3000);
