@@ -413,15 +413,17 @@
 // first.className = "cyan";
 
 //* SetInterval and SetTimeout
-document.writeln("Hello World");
+// document.writeln("Hello World");
 // setTimeout(() => {
 //   alert("This is a delayed alert!");
 // }, 2000);
-const sum = (a, b) => {
-    console.log("Sum of " + a + " and " + b + " is: " + (a + b));
-    document.writeln("Sum of " + a + " and " + b + " is: " + (a + b));
-}
-setTimeout(sum, 2000, 5, 10);
-setInterval(function(){
-    alert("This is a repeated alert every 3 seconds!");
-},3000);
+// const sum = (a, b) => {
+//     console.log("Sum of " + a + " and " + b + " is: " + (a + b));
+//     document.writeln("Sum of " + a + " and " + b + " is: " + (a + b));
+// }
+// setTimeout(sum, 2000, 5, 10);
+// setInterval(function(){
+//     alert("This is a repeated alert every 3 seconds!");
+// },3000);
+
+//* Browser Events
