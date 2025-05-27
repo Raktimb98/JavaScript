@@ -427,3 +427,28 @@
 // },3000);
 
 //* Browser Events
+//! All codes are in browserEvents.html file
+
+//* Handling Browser Events
+btn2.addEventListener("click", () => {
+    alert("Button 2 clicked!");
+});
+
+//? Example: Remove Event Listener
+
+function showAlert() {
+    alert("Button clicked!");
+}
+
+const btn = document.createElement("button");
+btn.textContent = "Click Me";
+document.body.appendChild(btn);
+
+// Add the event listener
+btn.addEventListener("click", showAlert);
+
+// Remove the event listener after 2 seconds
+setTimeout(() => {
+    btn.removeEventListener("click", showAlert);
+    btn.textContent = "Event Listener Removed";
+}, 2000);
