@@ -430,25 +430,53 @@
 //! All codes are in browserEvents.html file
 
 //* Handling Browser Events
-btn2.addEventListener("click", () => {
-    alert("Button 2 clicked!");
-});
+// btn2.addEventListener("click", () => {
+//     alert("Button 2 clicked!");
+// });
 
-//? Example: Remove Event Listener
+// //? Example: Remove Event Listener
 
-function showAlert() {
-    alert("Button clicked!");
+// function showAlert() {
+//     alert("Button clicked!");
+// }
+
+// const btn = document.createElement("button");
+// btn.textContent = "Click Me";
+// document.body.appendChild(btn);
+
+// // Add the event listener
+// btn.addEventListener("click", showAlert);
+
+// // Remove the event listener after 2 seconds
+// setTimeout(() => {
+//     btn.removeEventListener("click", showAlert);
+//     btn.textContent = "Event Listener Removed";
+// }, 2000);
+
+//* Introduction to Callbacks
+//! Synchronous programming
+// let a = 5;
+// let b = 10;
+// function add(x, y) {
+//     return x + y;
+// }
+// console.log (add(a, b));
+
+//! Asynchronous programming
+// setTimeout(function() {
+//     console.log("This is an asynchronous callback after 2 seconds");
+// }, 2000);
+
+//! Callback
+function loadScript(src,callback) {
+    var script = document.createElement("script");
+    script.src = src;
+    script.onload = function() {
+        console.log("Script loaded successfully");
+        if (callback) {
+            callback();
+        }
+    };
+    document.body.appendChild(script);
 }
-
-const btn = document.createElement("button");
-btn.textContent = "Click Me";
-document.body.appendChild(btn);
-
-// Add the event listener
-btn.addEventListener("click", showAlert);
-
-// Remove the event listener after 2 seconds
-setTimeout(() => {
-    btn.removeEventListener("click", showAlert);
-    btn.textContent = "Event Listener Removed";
-}, 2000);
+loadScript("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js")
