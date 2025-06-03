@@ -590,11 +590,39 @@
 // );
 
 //* Promises
-let myPromise = new Promise(function (resolve, reject) {
-  console.log("Promise is pending...");
+// let myPromise = new Promise(function (resolve, reject) {
+//   console.log("Promise is pending...");
+// });
+// console.log("No.1 Hello");
+// setTimeout(() => {
+//   console.log("No.2 Hello");
+// }, (timeout = 2000));
+// console.log("Incoming");
+
+//* Promises .then() and .catch()
+let p1 = new Promise((resolve, reject) => {
+    console.log("Promise is pending...");
+    // Simulating an asynchronous operation
+    setTimeout(() => {
+        // console.log("This is a promise that resolves after 2 seconds");
+        resolve(true);
+        // reject(new Error("This is an error from the promise"));
+    }, timeout = 2000);
 });
-console.log("No.1 Hello");
-setTimeout(() => {
-  console.log("No.2 Hello");
-}, (timeout = 2000));
-console.log("Incoming");
+let p2 = new Promise((resolve, reject) => {
+    console.log("Promise is pending...");
+    // Simulating an asynchronous operation
+    setTimeout(() => {
+        // console.log("This is a promise that rejects after 2 seconds");
+        // resolve(true);
+        reject(new Error("This is an error from the promise"));
+    }, timeout = 2000);
+});
+console.log(p1,p2);
+
+p1.then((value)=>{
+    console.log("This is the value from p1: ", value);
+})
+p2.catch((error)=>{
+    console.error("This is the error from p2: ", error);
+});
