@@ -628,23 +628,44 @@
 // });
 
 //* Promise chaining
-let p1 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        console.log("This is a promise that resolves after 2 seconds");
-        resolve(true);
-    },  timeout = 2000);
-});
+// let p1 = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         console.log("This is a promise that resolves after 2 seconds");
+//         resolve(true);
+//     },  timeout = 2000);
+// });
 
-p1.then((value) => {
-    console.log("This is the value from p1: ", value);
-    let p2 = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("Hell yeah!");
-        }, timeout = 2000);
-    })
-    return p2;
-}).then((value) => {
-    console.log("This is the value from p2: ", value);
-}).then((value)=>{
-    console.log("We are done with the promise chaining!");
+// p1.then((value) => {
+//     console.log("This is the value from p1: ", value);
+//     let p2 = new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("Hell yeah!");
+//         }, timeout = 2000);
+//     })
+//     return p2;
+// }).then((value) => {
+//     console.log("This is the value from p2: ", value);
+// }).then((value)=>{
+//     console.log("We are done with the promise chaining!");
+// });
+
+//* Attaching Multiple Handlers to a Promise
+let p1 = new Promise((resolve, reject) => {
+    console.log("Still not resolved yet...");
+    setTimeout(() => {
+        resolve(true);
+    }, timeout = 2000); 
 });
+p1.then((value)=>{
+    console.log("Resolved value: ", value);
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            resolve (98);
+        }, timeout = 5000);
+    }).then((value) => {
+        console.log("This is the value from the second promise: ", value);
+    });
+})
+p1.then(()=>{
+    console.log("This is another handler for the same promise.");
+})
