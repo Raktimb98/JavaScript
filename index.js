@@ -650,22 +650,45 @@
 // });
 
 //* Attaching Multiple Handlers to a Promise
+// let p1 = new Promise((resolve, reject) => {
+//     console.log("Still not resolved yet...");
+//     setTimeout(() => {
+//         resolve(true);
+//     }, timeout = 2000); 
+// });
+// p1.then((value)=>{
+//     console.log("Resolved value: ", value);
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+//             resolve (98);
+//         }, timeout = 5000);
+//     }).then((value) => {
+//         console.log("This is the value from the second promise: ", value);
+//     });
+// })
+// p1.then(()=>{
+//     console.log("This is another handler for the same promise.");
+// })
+
+//* Promise API
 let p1 = new Promise((resolve, reject) => {
-    console.log("Still not resolved yet...");
     setTimeout(() => {
-        resolve(true);
-    }, timeout = 2000); 
+        resolve("This is the resolved value from p1");
+    }, timeout = 2000);
 });
-p1.then((value)=>{
-    console.log("Resolved value: ", value);
-    return new Promise((resolve,reject) => {
-        setTimeout(() => {
-            resolve (98);
-        }, timeout = 5000);
-    }).then((value) => {
-        console.log("This is the value from the second promise: ", value);
-    });
-})
-p1.then(()=>{
-    console.log("This is another handler for the same promise.");
+let p2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        reject("This is the rejected from p2");
+    }, timeout = 3000);
+});
+let p3 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("This is the resolved value from p3");
+    }, timeout = 4000);
+});
+
+// let promise_all = Promise.all([p1, p2, p3]);
+let promise_all = Promise.allSettled([p1, p2, p3]);
+promise_all.then((value)=>{
+console.log("This is the value from promise_all: ", value);
 })
