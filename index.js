@@ -671,24 +671,44 @@
 // })
 
 //* Promise API
-let p1 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve("This is the resolved value from p1");
+// let p1 = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve("This is the resolved value from p1");
+//     }, timeout = 2000);
+// });
+// let p2 = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         reject("This is the rejected from p2");
+//     }, timeout = 3000);
+// });
+// let p3 = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve("This is the resolved value from p3");
+//     }, timeout = 4000);
+// });
+
+// // let promise_all = Promise.all([p1, p2, p3]);
+// let promise_all = Promise.allSettled([p1, p2, p3]);
+// promise_all.then((value)=>{
+// console.log("This is the value from promise_all: ", value);
+// })
+
+//* Async/Await
+async function func() {
+let eggPrice = new Promise((resolve, reject) => {
+    setTimeout (() => {
+        resolve("170 Rs per tray");
     }, timeout = 2000);
 });
-let p2 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        reject("This is the rejected from p2");
-    }, timeout = 3000);
+let chickenPrice = new Promise((resolve, reject) => {
+    setTimeout (() => {
+        resolve("40 Rs per 200 grams");
+    }, timeout = 6000);
 });
-let p3 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve("This is the resolved value from p3");
-    }, timeout = 4000);
-});
-
-// let promise_all = Promise.all([p1, p2, p3]);
-let promise_all = Promise.allSettled([p1, p2, p3]);
-promise_all.then((value)=>{
-console.log("This is the value from promise_all: ", value);
-})
+    // eggPrice.then(console.log);
+    // chickenPrice.then(console.log);
+    let egg = await eggPrice;
+    let chicken = await chickenPrice;
+    return(console.log("Egg Price: ", egg , "\nChicken Price: ", chicken));
+}
+func()
