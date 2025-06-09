@@ -694,21 +694,35 @@
 // })
 
 //* Async/Await
-async function func() {
-let eggPrice = new Promise((resolve, reject) => {
-    setTimeout (() => {
-        resolve("170 Rs per tray");
-    }, timeout = 2000);
-});
-let chickenPrice = new Promise((resolve, reject) => {
-    setTimeout (() => {
-        resolve("40 Rs per 200 grams");
-    }, timeout = 6000);
-});
-    // eggPrice.then(console.log);
-    // chickenPrice.then(console.log);
-    let egg = await eggPrice;
-    let chicken = await chickenPrice;
-    return(console.log("Egg Price: ", egg , "\nChicken Price: ", chicken));
-}
-func()
+// async function func() {
+// let eggPrice = new Promise((resolve, reject) => {
+//     setTimeout (() => {
+//         resolve("170 Rs per tray");
+//     }, timeout = 2000);
+// });
+// let chickenPrice = new Promise((resolve, reject) => {
+//     setTimeout (() => {
+//         resolve("40 Rs per 200 grams");
+//     }, timeout = 6000);
+// });
+//     // eggPrice.then(console.log);
+//     // chickenPrice.then(console.log);
+//     let egg = await eggPrice;
+//     let chicken = await chickenPrice;
+//     return(console.log("Egg Price: ", egg , "\nChicken Price: ", chicken));
+// }
+// func()
+
+//* Error Handling
+setTimeout(() => {
+    try {
+        let a = 5;
+        let b = 0;
+        if (b === 0) {
+            throw new Error("Division by zero is not allowed");
+        }
+        console.log(a / b);
+    } catch (error) {
+        console.error("An error occurred: ", error.message);
+    }
+}, timeout = 2000);
