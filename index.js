@@ -714,15 +714,28 @@
 // func()
 
 //* Error Handling
-setTimeout(() => {
-    try {
-        let a = 5;
-        let b = 0;
-        if (b === 0) {
-            throw new Error("Division by zero is not allowed");
-        }
-        console.log(a / b);
-    } catch (error) {
-        console.error("An error occurred: ", error.message);
-    }
-}, timeout = 2000);
+// setTimeout(() => {
+//     try {
+//         let a = 5;
+//         let b = 0;
+//         if (b === 0) {
+//             throw new Error("Division by zero is not allowed");
+//         }
+//         console.log(a / b);
+//     } catch (error) {
+//         console.error("An error occurred: ", error.message);
+//     }
+// }, timeout = 2000);
+
+//* Finally clause
+try{
+    let a = 0;
+    console.log(b);
+    console.log("It's running");
+}
+catch(error){
+    console.error("An error occurred: ", error.message);
+}
+finally {
+    console.log("This will always run, regardless of whether an error occurred or not.");
+}
