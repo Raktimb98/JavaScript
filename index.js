@@ -728,14 +728,29 @@
 // }, timeout = 2000);
 
 //* Finally clause
-try{
-    let a = 0;
-    console.log(b);
-    console.log("It's running");
-}
-catch(error){
-    console.error("An error occurred: ", error.message);
-}
-finally {
-    console.log("This will always run, regardless of whether an error occurred or not.");
-}
+// try{
+//     let a = 0;
+//     console.log(b);
+//     console.log("It's running");
+// }
+// catch(error){
+//     console.error("An error occurred: ", error.message);
+// }
+// finally {
+//     console.log("This will always run, regardless of whether an error occurred or not.");
+// }
+
+//* Fetch API
+let p = fetch("https://jsonplaceholder.typicode.com/posts/1");
+p.then((response) => {
+    if (!response.ok) {
+        throw new Error("Network response was not ok");
+    }
+    return response.json();
+}).then((data) => {
+    console.log("Data fetched successfully: ", data);
+}).catch((error) => {
+    console.error("An error occurred while fetching data: ", error.message);
+}).finally(() => {
+    console.log("Fetch operation completed.");
+});
