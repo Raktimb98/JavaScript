@@ -654,7 +654,7 @@
 //     console.log("Still not resolved yet...");
 //     setTimeout(() => {
 //         resolve(true);
-//     }, timeout = 2000); 
+//     }, timeout = 2000);
 // });
 // p1.then((value)=>{
 //     console.log("Resolved value: ", value);
@@ -743,14 +743,17 @@
 //* Fetch API
 let p = fetch("https://jsonplaceholder.typicode.com/posts/1");
 p.then((response) => {
-    if (!response.ok) {
-        throw new Error("Network response was not ok");
-    }
-    return response.json();
-}).then((data) => {
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return response.json();
+})
+  .then((data) => {
     console.log("Data fetched successfully: ", data);
-}).catch((error) => {
+  })
+  .catch((error) => {
     console.error("An error occurred while fetching data: ", error.message);
-}).finally(() => {
+  })
+  .finally(() => {
     console.log("Fetch operation completed.");
-});
+  });
