@@ -759,13 +759,36 @@
 //   });
 
 //Another example of Fetch API
-let p = fetch("https://jsonplaceholder.typicode.com/posts");
-p.then((response) => {
-  console.log(response.status)
-  console.log(response.ok)
-  return response.json();
-}).then((data) => {
-  console.log("Data fetched successfully: ", data);
-}).catch((error) => {
-  console.error("An error occurred while fetching data: ", error.message);
-});
+// let p = fetch("https://jsonplaceholder.typicode.com/posts");
+// p.then((response) => {
+//   console.log(response.status)
+//   console.log(response.ok)
+//   return response.json();
+// }).then((data) => {
+//   console.log("Data fetched successfully: ", data);
+// }).catch((error) => {
+//   console.error("An error occurred while fetching data: ", error.message);
+// });
+
+//Sending post request using Fetch API
+const createTodo = async() =>{
+let options = {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    title: "foo",
+    body: "bar",
+    userId: 1,
+  }),
+}
+let p = await fetch("https://jsonplaceholder.typicode.com/posts", options)
+let response = await p.json();
+return response
+}
+const mainFunc =async () =>{
+  let todo = await createTodo();
+  console.log(todo);
+}
+mainFunc();
