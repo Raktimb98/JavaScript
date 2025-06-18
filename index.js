@@ -741,19 +741,31 @@
 // }
 
 //* Fetch API
-let p = fetch("https://jsonplaceholder.typicode.com/posts/1");
+// let p = fetch("https://jsonplaceholder.typicode.com/posts/1");
+// p.then((response) => {
+//   if (!response.ok) {
+//     throw new Error("Network response was not ok");
+//   }
+//   return response.json();
+// })
+//   .then((data) => {
+//     console.log("Data fetched successfully: ", data);
+//   })
+//   .catch((error) => {
+//     console.error("An error occurred while fetching data: ", error.message);
+//   })
+//   .finally(() => {
+//     console.log("Fetch operation completed.");
+//   });
+
+//Another example of Fetch API
+let p = fetch("https://jsonplaceholder.typicode.com/posts");
 p.then((response) => {
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
+  console.log(response.status)
+  console.log(response.ok)
   return response.json();
-})
-  .then((data) => {
-    console.log("Data fetched successfully: ", data);
-  })
-  .catch((error) => {
-    console.error("An error occurred while fetching data: ", error.message);
-  })
-  .finally(() => {
-    console.log("Fetch operation completed.");
-  });
+}).then((data) => {
+  console.log("Data fetched successfully: ", data);
+}).catch((error) => {
+  console.error("An error occurred while fetching data: ", error.message);
+});
