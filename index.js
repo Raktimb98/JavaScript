@@ -758,7 +758,7 @@
 //     console.log("Fetch operation completed.");
 //   });
 
-//Another example of Fetch API
+//* Another example of Fetch API
 // let p = fetch("https://jsonplaceholder.typicode.com/posts");
 // p.then((response) => {
 //   console.log(response.status)
@@ -770,25 +770,31 @@
 //   console.error("An error occurred while fetching data: ", error.message);
 // });
 
-//Sending post request using Fetch API
-const createTodo = async() =>{
-let options = {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    title: "foo",
-    body: "bar",
-    userId: 1,
-  }),
-}
-let p = await fetch("https://jsonplaceholder.typicode.com/posts", options)
-let response = await p.json();
-return response
-}
-const mainFunc =async () =>{
-  let todo = await createTodo();
-  console.log(todo);
-}
-mainFunc();
+//* Sending post request using Fetch API
+// const createTodo = async() =>{
+// let options = {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify({
+//     title: "foo",
+//     body: "bar",
+//     userId: 1,
+//   }),
+// }
+// let p = await fetch("https://jsonplaceholder.typicode.com/posts", options)
+// let response = await p.json();
+// return response
+// }
+// const mainFunc =async () =>{
+//   let todo = await createTodo();
+//   console.log(todo);
+// }
+// mainFunc();
+
+//* Cookies
+console.log(document.cookie);
+document.cookie = "name=FrostFern";
+document.cookie = "name=FrostFern-the-junior";
+console.log(document.cookie);
