@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Hacker Console Simulator</title>
@@ -11,6 +12,7 @@
             margin: 0;
             height: 100vh;
         }
+
         .console {
             background: #000;
             border: 2px solid #33ff33;
@@ -21,22 +23,29 @@
             min-height: 300px;
             box-shadow: 0 0 20px #33ff3344;
         }
+
         .console-line {
             margin: 0 0 8px 0;
             white-space: pre;
         }
+
         .blink {
             animation: blink 1s steps(1) infinite;
         }
+
         @keyframes blink {
-            50% { opacity: 0; }
+            50% {
+                opacity: 0;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="console" id="hackerConsole">
         <span class="console-line blink">_</span>
     </div>
     <script src="exerciseNo5.js"></script>
 </body>
+
 </html>
