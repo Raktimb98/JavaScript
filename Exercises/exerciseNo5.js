@@ -5,7 +5,7 @@ async function hackerConsole() {
     "2. Loading modules...",
     "3. Accessing the database...",
     "4. Hacking the system...",
-    "5. Hacked successfully!",
+    "5. Hacked successfully!",  
   ];
   const consoleDiv = document.getElementById("hackerConsole");
   consoleDiv.innerHTML = ""; // Clear initial blink
