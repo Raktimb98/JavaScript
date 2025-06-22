@@ -803,25 +803,33 @@
 // localStorage.setItem("name", "FrostFern");
 // localStorage.setItem("age", "25");
 
-let promptFunc;
-if (typeof window === "undefined") {
-  // Node.js environment
-  const promptSync = require('prompt-sync')();
-  promptFunc = promptSync;
-  // Polyfill localStorage for Node.js if needed
-  if (typeof localStorage === "undefined") {
-	global.localStorage = {
-	  _data: {},
-	  setItem: function (key, value) { this._data[key] = value; },
-	  getItem: function (key) { return this._data[key]; }
-	};
-  }
-} else {
-  // Browser environment
-  promptFunc = window.prompt;
-}
+// let promptFunc;
+// if (typeof window === "undefined") {
+//   // Node.js environment
+//   const promptSync = require('prompt-sync')();
+//   promptFunc = promptSync;
+//   // Polyfill localStorage for Node.js if needed
+//   if (typeof localStorage === "undefined") {
+// 	global.localStorage = {
+// 	  _data: {},
+// 	  setItem: function (key, value) { this._data[key] = value; },
+// 	  getItem: function (key) { return this._data[key]; }
+// 	};
+//   }
+// } else {
+//   // Browser environment
+//   promptFunc = window.prompt;
+// }
 
-let key = promptFunc("Enter your name:");
-let value = promptFunc("Enter your age:");
-localStorage.setItem(key, value);
-console.log(localStorage.getItem(key));
+// let key = promptFunc("Enter your name:");
+// let value = promptFunc("Enter your age:");
+// localStorage.setItem(key, value);
+// console.log(localStorage.getItem(key));
+
+//* Session Storage
+// sessionStorage.setItem("name", "FrostFern");
+// document.write(sessionStorage.getItem("name"));
+window.onstorage = (event) => {
+  alert("Changed")
+  console.log(event);
+};
