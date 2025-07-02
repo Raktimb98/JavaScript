@@ -1,0 +1,207 @@
+<!-- Create a javascript program capable of generating a password which contains at least one uppercase letter, one lowercase letter, one number, and one special character. create a password class to achieve this. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for better aesthetics */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-500 to-purple-600 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Password Generator</h1>
+
+        <!-- Password Length Input -->
+        <div class="mb-5">
+            <label for="passwordLength" class="block text-gray-700 text-sm font-semibold mb-2">
+                Password Length (min 8, max 128):
+            </label>
+            <input
+                type="number"
+                id="passwordLength"
+                min="8"
+                max="128"
+                value="12"
+                class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200"
+            />
+        </div>
+
+        <!-- Generate Button -->
+        <button
+            id="generateButton"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 transform hover:scale-105 shadow-lg"
+        >
+            Generate Password
+        </button>
+
+        <!-- Generated Password Display -->
+        <div class="mt-8">
+            <label for="generatedPassword" class="block text-gray-700 text-sm font-semibold mb-2">
+                Your Generated Password:
+            </label>
+            <div
+                id="generatedPassword"
+                class="bg-gray-100 border border-gray-300 rounded-lg p-4 text-gray-800 text-center break-all text-lg font-mono min-h-[50px] flex items-center justify-center cursor-pointer select-all relative"
+                title="Click to copy"
+            >
+                <!-- Placeholder for generated password -->
+                Click "Generate Password"
+            </div>
+            <p id="message" class="text-sm text-red-600 mt-2 text-center"></p>
+        </div>
+
+        <!-- Copy Confirmation Message -->
+        <div id="copyConfirmation" class="hidden fixed bottom-5 left-1/2 -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg">
+            Password copied to clipboard!
+        </div>
+    </div>
+
+    <script>
+        // Password class definition
+        class Password {
+            constructor() {
+                this.uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                this.lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+                this.numberChars = '0123456789';
+                this.specialChars = '!@#$%^&*()_+[]{}|;:,.<>?';
+                this.allChars = this.uppercaseChars + this.lowercaseChars + this.numberChars + this.specialChars;
+            }
+
+            /**
+             * Generates a random character from a given set.
+             * @param {string} charSet - The string of characters to choose from.
+             * @returns {string} A random character.
+             */
+            _getRandomChar(charSet) {
+                const randomIndex = Math.floor(Math.random() * charSet.length);
+                return charSet[randomIndex];
+            }
+
+            /**
+             * Shuffles an array in place using the Fisher-Yates algorithm.
+             * @param {Array<string>} array - The array to shuffle.
+             */
+            _shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+                }
+            }
+
+            /**
+             * Generates a password with specified length and criteria.
+             * Ensures at least one uppercase, one lowercase, one number, and one special character.
+             * @param {number} length - The desired length of the password.
+             * @returns {string} The generated password.
+             */
+            generate(length) {
+                if (length < 8) {
+                    throw new Error("Password length must be at least 8 characters.");
+                }
+
+                if (length > 128) {
+                    throw new new Error("Password length cannot exceed 128 characters.");
+                }
+
+                let passwordChars = [];
+
+                // Ensure at least one of each required type
+                passwordChars.push(this._getRandomChar(this.uppercaseChars));
+                passwordChars.push(this._getRandomChar(this.lowercaseChars));
+                passwordChars.push(this._getRandomChar(this.numberChars));
+                passwordChars.push(this._getRandomChar(this.specialChars));
+
+                // Fill the remaining length with random characters from all sets
+                for (let i = passwordChars.length; i < length; i++) {
+                    passwordChars.push(this._getRandomChar(this.allChars));
+                }
+
+                // Shuffle the array to randomize the position of required characters
+                this._shuffleArray(passwordChars);
+
+                return passwordChars.join('');
+            }
+        }
+
+        // DOM Elements
+        const passwordLengthInput = document.getElementById('passwordLength');
+        const generateButton = document.getElementById('generateButton');
+        const generatedPasswordDisplay = document.getElementById('generatedPassword');
+        const messageDisplay = document.getElementById('message');
+        const copyConfirmation = document.getElementById('copyConfirmation');
+
+        // Instantiate the Password class
+        const passwordGenerator = new Password();
+
+        /**
+         * Displays a temporary message to the user.
+         * @param {string} msg - The message to display.
+         * @param {boolean} isError - True if it's an error message, false otherwise.
+         */
+        function showMessage(msg, isError = false) {
+            messageDisplay.textContent = msg;
+            messageDisplay.className = `text-sm mt-2 text-center ${isError ? 'text-red-600' : 'text-green-600'}`;
+            // Clear message after a few seconds
+            setTimeout(() => {
+                messageDisplay.textContent = '';
+            }, 3000);
+        }
+
+        /**
+         * Handles the password generation process when the button is clicked.
+         */
+        generateButton.addEventListener('click', () => {
+            const length = parseInt(passwordLengthInput.value, 10);
+            messageDisplay.textContent = ''; // Clear previous messages
+
+            try {
+                const newPassword = passwordGenerator.generate(length);
+                generatedPasswordDisplay.textContent = newPassword;
+                generatedPasswordDisplay.classList.remove('text-gray-500'); // Remove placeholder styling
+            } catch (error) {
+                showMessage(error.message, true);
+                generatedPasswordDisplay.textContent = 'Error generating password.';
+                generatedPasswordDisplay.classList.add('text-gray-500');
+            }
+        });
+
+        /**
+         * Copies the generated password to the clipboard.
+         */
+        generatedPasswordDisplay.addEventListener('click', () => {
+            const passwordText = generatedPasswordDisplay.textContent;
+            if (passwordText && passwordText !== 'Click "Generate Password"' && passwordText !== 'Error generating password.') {
+                // Use document.execCommand('copy') for better iframe compatibility
+                const textArea = document.createElement('textarea');
+                textArea.value = passwordText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    const successful = document.execCommand('copy');
+                    if (successful) {
+                        copyConfirmation.classList.remove('hidden');
+                        setTimeout(() => {
+                            copyConfirmation.classList.add('hidden');
+                        }, 2000); // Hide after 2 seconds
+                    } else {
+                        showMessage('Failed to copy password.', true);
+                    }
+                } catch (err) {
+                    showMessage('Failed to copy password.', true);
+                }
+                document.body.removeChild(textArea);
+            }
+        });
+
+        // Initial password generation on load
+        generateButton.click();
+    </script>
+</body>
+</html>
