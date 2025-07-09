@@ -829,7 +829,13 @@
 //* Session Storage
 // sessionStorage.setItem("name", "FrostFern");
 // document.write(sessionStorage.getItem("name"));
-window.onstorage = (event) => {
-  alert("Changed")
-  console.log(event);
-};
+// window.onstorage = (event) => {
+//   alert("Changed")
+//   console.log(event);
+// };
+
+//* Hosting
+eat();
+function eat(){
+    console.log("Eating");
+}
