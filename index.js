@@ -836,6 +836,6 @@
 
 //* Hosting
 eat();
-function eat(){
-    console.log("Eating");
+function eat() {
+  console.log("Eating");
 }
