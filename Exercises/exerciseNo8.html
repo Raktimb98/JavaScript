@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Analog Alarm Clock</title>
+  <style>
+    body {
+      background: #222;
+      color: #f3f3f3;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      margin-top: 40px;
+      font-weight: 400;
+      letter-spacing: 2px;
+    }
+    #clock-container {
+      margin: 30px 0;
+      background: #333;
+      border-radius: 50%;
+      box-shadow: 0 8px 32px #0006;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 320px;
+      height: 320px;
+    }
+    #clock {
+      background: #222;
+      border-radius: 50%;
+      display: block;
+    }
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    input[type="time"] {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1.1em;
+      background: #444;
+      color: #fff;
+    }
+    button {
+      padding: 8px 18px;
+      border: none;
+      border-radius: 6px;
+      background: #00aaff;
+      color: #fff;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #0088cc;
+    }
+    #alarm-status {
+      margin-top: 10px;
+      font-size: 1em;
+      color: #ffa500;
+      min-height: 20px;
+    }
+    #stopAlarmBtn {
+      margin-top: 12px;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 6px;
+      background: #ff5555;
+      color: #fff;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: none;
+    }
+    #stopAlarmBtn:hover {
+      background: #cc2222;
+    }
+  </style>
+</head>
+<body>
+  <h1>Analog Alarm Clock</h1>
+  <div id="clock-container">
+    <canvas id="clock" width="300" height="300"></canvas>
+  </div>
+  <div class="controls">
+    <input type="time" id="alarmTime">
+    <button id="setAlarmBtn">Set Alarm</button>
+    <div id="alarm-status"></div>
+    <button id="stopAlarmBtn">Stop Alarm</button>
+  </div>
+  <audio id="alarmAudio" src="./alarm.mp3" preload="auto"></audio>
+  <script>
+    // Analog clock drawing
+    const canvas = document.getElementById('clock');
+    const ctx = canvas.getContext('2d');
+    const radius = canvas.width / 2;
+
+    function drawClock() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.save();
+      ctx.translate(radius, radius);
+
+      // Draw face
+      ctx.beginPath();
+      ctx.arc(0, 0, radius - 8, 0, 2 * Math.PI);
+      ctx.fillStyle = '#222';
+      ctx.fill();
+      ctx.lineWidth = 8;
+      ctx.strokeStyle = '#00aaff';
+      ctx.stroke();
+
+      // Draw hour marks
+      for (let i = 0; i < 12; i++) {
+        ctx.save();
+        ctx.rotate(i * Math.PI / 6);
+        ctx.beginPath();
+        ctx.moveTo(0, -radius + 24);
+        ctx.lineTo(0, -radius + 44);
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = '#fff';
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      // Draw minute marks
+      for (let i = 0; i < 60; i++) {
+        if (i % 5 !== 0) {
+          ctx.save();
+          ctx.rotate(i * Math.PI / 30);
+          ctx.beginPath();
+          ctx.moveTo(0, -radius + 34);
+          ctx.lineTo(0, -radius + 44);
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = '#aaa';
+          ctx.stroke();
+          ctx.restore();
+        }
+      }
+
+      // Get current time
+      const now = new Date();
+      let hour = now.getHours();
+      let minute = now.getMinutes();
+      let second = now.getSeconds();
+
+      // Draw hour hand
+      ctx.save();
+      ctx.rotate(((hour % 12) + minute / 60) * Math.PI / 6);
+      ctx.beginPath();
+      ctx.moveTo(0, 8);
+      ctx.lineTo(0, -radius + 80);
+      ctx.lineWidth = 8;
+      ctx.strokeStyle = '#00aaff';
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      ctx.restore();
+
+      // Draw minute hand
+      ctx.save();
+      ctx.rotate((minute + second / 60) * Math.PI / 30);
+      ctx.beginPath();
+      ctx.moveTo(0, 16);
+      ctx.lineTo(0, -radius + 50);
+      ctx.lineWidth = 6;
+      ctx.strokeStyle = '#fff';
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      ctx.restore();
+
+      // Draw second hand
+      ctx.save();
+      ctx.rotate(second * Math.PI / 30);
+      ctx.beginPath();
+      ctx.moveTo(0, 24);
+      ctx.lineTo(0, -radius + 40);
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = '#ff5555';
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      ctx.restore();
+
+      // Draw center
+      ctx.beginPath();
+      ctx.arc(0, 0, 10, 0, 2 * Math.PI);
+      ctx.fillStyle = '#00aaff';
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    function updateClock() {
+      drawClock();
+      checkAlarm();
+      requestAnimationFrame(updateClock);
+    }
+
+    // Alarm logic
+    let alarmTime = null;
+    let alarmTriggered = false;
+    let alarmInterval = null;
+    let alarmTimeout = null;
+
+    const alarmAudio = document.getElementById('alarmAudio');
+    const alarmStatus = document.getElementById('alarm-status');
+    const stopAlarmBtn = document.getElementById('stopAlarmBtn');
+    const setAlarmBtn = document.getElementById('setAlarmBtn');
+
+    function setAlarm() {
+      const input = document.getElementById('alarmTime').value;
+      if (input) {
+        alarmTime = input;
+        alarmTriggered = false;
+        alarmStatus.textContent = `Alarm set for ${alarmTime}`;
+        stopAlarmBtn.style.display = 'none';
+
+        // "Unlock" audio playback for browsers
+        alarmAudio.play().then(() => {
+          alarmAudio.pause();
+          alarmAudio.currentTime = 0;
+        }).catch(() => {
+          // Some browsers may not allow this, but that's ok
+        });
+      } else {
+        alarmStatus.textContent = 'Please select a time.';
+      }
+    }
+
+    function checkAlarm() {
+      if (!alarmTime || alarmTriggered) return;
+      const now = new Date();
+      const current = now.toTimeString().slice(0,5);
+      if (current === alarmTime) {
+        ringAlarm();
+      }
+    }
+
+    function ringAlarm() {
+      alarmTriggered = true;
+      alarmStatus.textContent = '⏰ Alarm ringing!';
+      stopAlarmBtn.style.display = 'inline-block';
+
+      // Play alarm repeatedly for up to 30 seconds or until stopped
+      alarmAudio.loop = true;
+      alarmAudio.currentTime = 0;
+      alarmAudio.play();
+
+      // Stop alarm automatically after 30 seconds
+      alarmTimeout = setTimeout(stopAlarm, 30000);
+    }
+
+    function stopAlarm() {
+      alarmAudio.pause();
+      alarmAudio.currentTime = 0;
+      alarmAudio.loop = false;
+      stopAlarmBtn.style.display = 'none';
+      alarmStatus.textContent = '';
+      alarmTime = null;
+      alarmTriggered = false;
+      if (alarmTimeout) clearTimeout(alarmTimeout);
+    }
+
+    setAlarmBtn.addEventListener('click', setAlarm);
+    stopAlarmBtn.addEventListener('click', stopAlarm);
+
+    updateClock();
+  </script>
+</body>
+</html>
