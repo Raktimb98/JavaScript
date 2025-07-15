@@ -835,7 +835,13 @@
 // };
 
 //* Hosting
-eat();
-function eat() {
-  console.log("Eating");
-}
+// eat();
+// function eat() {
+//   console.log("Eating");
+// }
+
+//* Regular Expressions
+let regex = /hello/g;
+let str = "hello world, hello universe";
+console.log(str.replace(regex,"hi"));
+//Visit https://regex101.com/ for more regex testing and learning.
